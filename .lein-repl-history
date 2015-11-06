@@ -1,0 +1,6 @@
+exit
+(use 'ring.adapter.jetty)
+exit
+[ring/ring-core "1.4.0"]
+(use 'ring.adapter.jetty)
+exit
