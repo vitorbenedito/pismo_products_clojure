@@ -6,6 +6,7 @@
                  [com.novemberain/monger "3.0.1"]
                  [org.clojure/data.json "0.2.6"]
                  [org.clojure/data.xml "0.0.8"]
+                 [javax.servlet/servlet-api "2.5"]
                  [compojure "1.1.8"]]
   :plugins [[lein-ring "0.8.11"]]
   :main products.service
