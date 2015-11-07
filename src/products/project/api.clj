@@ -1,42 +1,38 @@
 (ns products.project.api
+  (:import org.bson.types.ObjectId)
   (:require [clojure.data.json :as json]
             [clojure.data.xml :as xml]
-            [clj-http.client :as client]
-
-            [io.pedestal.http :as bootstrap]
             [ring.util.response :as ring-resp]
-
             [monger.collection :as mc]
             [monger.json]
-
+            [ring.util.response :refer [response]]
             [products.mongodb :as db]
  ))
 
 (defn get-products
   [request]
-  (bootstrap/json-response
-    (mc/find-maps db/mongo-db db/products-coll)))
+  (mc/find-maps db/mongo-db db/products-coll))
 
+(defn object-id [map]
+  (assoc map :_id (ObjectId. (get-in map ["_id"]))))
 
 (defn add-product
   [request]
-  (println "TESTEEEEEE : " request)
-  (let [incoming (:json-params request)])
   (let [result (mc/insert-and-return db/mongo-db db/products-coll (:json-params request))]
-    (bootstrap/json-response {:id (:_id result)})))
+    (response {:id (:_id result)})))
 
 (defn get-product
   [request]
-  (let [id (get-in request [:path-params :id])]
-    (bootstrap/json-response (mc/remove-by-id db/mongo-db db/products-coll {:_id id}))))
+  (mc/find-maps db/mongo-db db/products-coll {:_id (ObjectId. (:id(:params request)))}))
 
 (defn update-product
   [request]
-  (let [incoming (:json-params request)])
-  (let [result (mc/save-and-return db/mongo-db db/products-coll (:json-params request))]
-    (bootstrap/json-response {:id (:_id result)})))
+  (let [result (mc/save-and-return db/mongo-db db/products-coll (object-id(:json-params request)))]
+    {:id (:_id result)}))
 
 (defn delete-product
   [request]
-  (let [id (get-in request [:path-params :id])]
-    (bootstrap/json-response (mc/find-maps db/mongo-db db/products-coll {:_id id}))))
+  (let [result 
+  (mc/remove-by-id db/mongo-db db/products-coll (ObjectId. (:id(:params request))))]
+  {:id (:_id result)}))
+
