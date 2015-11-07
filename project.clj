@@ -9,7 +9,7 @@
                  [javax.servlet/servlet-api "2.5"]
                  [compojure "1.1.8"]]
   :plugins [[lein-ring "0.8.11"]]
-  :main products.service
+  :main products.service/app
   :ring {:handler products.service/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
