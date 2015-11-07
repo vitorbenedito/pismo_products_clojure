@@ -9,8 +9,6 @@
                  [compojure "1.1.8"]]
   :plugins [[lein-ring "0.8.11"]]
   :main products.service
-  :min-lein-version "2.0.0"
-  :uberjar-name "product-app.jar"
   :ring {:handler products.service/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
