@@ -20,8 +20,8 @@ Start the app:
 --------------------------------------------------------------
 
 $ cd /pismo_products_clojure/<br>
-$ leiningen ring server
+$ lein ring server
 
 Heroku deploy crud
 --------------------------------------------------------------
-https://productscrud.herokuapp.com
+https://productsclojure.herokuapp.com/
