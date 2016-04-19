@@ -4,7 +4,7 @@
             [monger.json]))
 
 
-(def mongo-url (or (System/getenv "MONGOLAB_URI") "mongodb://localhost:27017/products"))
+(def mongo-url (or (System/getenv "MONGODB_URI") "mongodb://localhost:27017/products"))
 
 (defonce products-coll "products_clojure")
 
