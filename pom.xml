@@ -8,11 +8,11 @@
   <description>FIXME: write description</description>
   <url>http://example.com/FIXME</url>
   <scm>
-    <connection>scm:git:git://github.com/vitorbenedito/pismo_products_clojure.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/vitorbenedito/pismo_products_clojure.git</developerConnection>
+    <connection>scm:git:git://github.com/vitorbenedito/products_clojure.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/vitorbenedito/products_clojure.git</developerConnection>
     <tag>5bcda8de6655e79ea94fd2ff5182f89a78cd8265
 </tag>
-    <url>https://github.com/vitorbenedito/pismo_products_clojure</url>
+    <url>https://github.com/vitorbenedito/products_clojure</url>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>

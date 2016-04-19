@@ -18,10 +18,8 @@ $ sudo npm install -g bower
 
 Start the app:
 --------------------------------------------------------------
-
-$ cd /pismo_products_clojure/<br>
 $ lein ring server
 
 Heroku deploy crud
 --------------------------------------------------------------
-https://productsclojure.herokuapp.com/
+https://products-clojure.herokuapp.com
